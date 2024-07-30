@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playwrite+BE+VLG:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h3>skills.</h3>
+        <nav>
+            <a href="index.html" aria-label="Home">
+                <img src="home.png" alt="Home Icon" class="nav-icon"> Home
+            </a>
+            <a href="about.html" aria-label="About Me">
+                <img src="about.png" alt="About Me Icon" class="nav-icon"> About
+            </a>
+            <a href="achievements.html" aria-label="Achievements">
+                <img src="star.png" alt="Achievements Icon" class="nav-icon"> Achievements
+            </a>
+            <a href="skills.html" aria-label="Skills">
+                <img src="sk.png" alt="Skills Icon" class="nav-icon"> Skills
+            </a>
+            <a href="contact.html" aria-label="Contact">
+                <img src="contact.png" alt="Contact Icon" class="nav-icon"> Contact
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="skills">
+            <div class="skill">
+                <div class="circular-progress" data-percent="100">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">100%</div>
+                </div>
+                <h4>Communication Skills                </h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="90">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">90%</div>
+                </div>
+                <h4>User Experience Design Skills</h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="94">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">94%</div>
+                </div>
+                <h4>Leadership Skills</h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="85">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">85%</div>
+                </div>
+                <h4>Problem-Solving </h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="93">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">93%</div>
+                </div>
+                <h4>Project Management</h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="85">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">85%</div>
+                </div>
+                <h4>Quality Assurance</h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="87">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">87%</div>
+                </div>
+                <h4>Client Relation</h4>
+            </div>
+            <div class="skill">
+                <div class="circular-progress" data-percent="94">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="circle-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">94%</div>
+                </div>
+                <h4>User Interface Design</h4>
+            </div>
+            <!-- Add more skills as needed -->
+        </section>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.circular-progress').forEach(function(progress) {
+            const percent = progress.getAttribute('data-percent');
+            const circle = progress.querySelector('.circle-progress');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2* Math.PI * radius;
+
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = circumference - (percent / 100 * circumference);
+        });
+    });
+    </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
